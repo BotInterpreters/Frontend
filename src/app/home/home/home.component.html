@@ -1,0 +1,326 @@
+<div class="container-fluid hero-section">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-start">
+          <h1>logo</h1>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-end">
+          <mat-form-field>
+            <mat-label>Select language </mat-label>
+            <mat-select [(value)]="initialLanguage">
+              <mat-option [value]="1">English</mat-option>
+              <mat-option [value]="2">Filino</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-flat-button color="warn" (click)="login()">Sign in</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="text-zinc-600 text-3xl font-bold underline">
+      Unlimited movies, TV shows, and more
+    </h1>
+    <p>Watch anywhere. Cancel anytime</p>
+    <p>Ready to watch? Enter your email to create or restart your membership</p>
+  </div>
+
+  <div class="container search-section">
+    <form #headerForm="ngForm" (ngSubmit)="registerHeader(headerForm)">
+
+      <div class="row mt-3 mb-2">
+        <div class="col-12 col-md-8 col-lg-6">
+          <mat-form-field appearance="outline" class="mb-5">
+            <mat-label>Email Address</mat-label>
+            <input matInput [(ngModel)]="userEmailInputHeader" name="userEmailInputHeader" required email>
+          </mat-form-field>
+          <mat-error *ngIf="headerForm.submitted && headerForm.controls['userEmailInputHeader'].errors?.['required']">
+            <mat-icon>error_outline</mat-icon> Email is required
+          </mat-error>
+          <mat-error *ngIf="headerForm.submitted && headerForm.controls['userEmailInputHeader'].errors?.['email']">
+            <mat-icon>error_outline</mat-icon> Please enter a valid email address
+          </mat-error>
+        </div>
+        <div class="col-12 col-md-4 col-lg-6">
+          <button mat-raised-button color="primary" [style.width.%]="100">
+            Get Started</button>
+        </div>
+        <mat-error *ngIf="emailEmpty"><mat-icon>error</mat-icon>Email required</mat-error>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr class="horizontal-split">
+
+<div class="container-fluid sections">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="heading">Enjoy on your TV</h1>
+        <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+      </div>
+      <div class="col-lg-6">
+        <mat-form-field appearance="outline" class="text-white">
+          <select matNativeControl required>
+            <option value="volvo">English</option>
+            <option value="saab">Espaniol</option>
+          </select>
+        </mat-form-field>
+        <button mat-flat-button color="warn">Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="horizontal-split">
+
+<div class="container-fluid sections">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <img [src]="'https://placehold.co/600x400'" alt="">
+      </div>
+      <div class="col-lg-6">
+        <h1>Watch everywhere</h1>
+        <p>Stream unlimited movies and TV shows on your phone tablet, tablet, laptop, and TV.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="horizontal-split">
+
+<div class="container-fluid sections">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <h1>Create profiles for kids</h1>
+        <p>Send kids on adventures with their favorite characters in a space made just for them - free with your
+          membership.</p>
+      </div>
+      <div class="col-lg-6">
+        <img [src]="'https://placehold.co/600x400'" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="horizontal-split">
+
+<div class="container-fluid sections">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <img [src]="'https://placehold.co/600x400'" alt="">
+      </div>
+      <div class="col-lg-6">
+        <h1>Download your shows to watch offline</h1>
+        <p>Watch on plane, train, or submarine...</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr class="horizontal-split">
+
+<div class="container-fluid sections">
+
+  <div class="container">
+
+    <h1 class="heading text-center">Frequently asked questions</h1>
+
+    <mat-accordion>
+      <mat-expansion-panel (opened)="togglePanel(0, true)" (closed)="togglePanel(0, false)" hideToggle="true" class="faq-panel mb-2">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-white">
+            What is Netflix
+          </mat-panel-title>
+          <mat-panel-description class="d-flex justify-content-end m-0">
+            <mat-icon class="icon" *ngIf="isPanelOpened[0]">close</mat-icon>
+            <mat-icon class="icon" *ngIf="!isPanelOpened[0]">add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="text-white">Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime,
+          documentaries, and more on thousands of internet-connected devices.</p>
+        <p class="text-white">You can watch as much as you want, whenever you want – all for one low monthly price. There's always
+          something new to discover and new TV shows and movies are added every week!</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="togglePanel(1, true)" (closed)="togglePanel(1, false)" hideToggle="true" class="faq-panel mb-2">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-white">
+            How much does Netflix cost?
+          </mat-panel-title>
+          <mat-panel-description class="d-flex justify-content-end m-0">
+            <mat-icon class="icon" *ngIf="isPanelOpened[1]">close</mat-icon>
+            <mat-icon class="icon" *ngIf="!isPanelOpened[1]">add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="text-white">Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly
+          fee.
+          Plans range from $6.99 to $22.99 a month. No extra costs, no contracts.</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="togglePanel(2, true)" (closed)="togglePanel(2, false)" hideToggle="true" class="faq-panel mb-2">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-white">
+            Where can I watch?
+          </mat-panel-title>
+          <mat-panel-description class="d-flex justify-content-end m-0">
+            <mat-icon class="icon" *ngIf="isPanelOpened[2]">close</mat-icon>
+            <mat-icon class="icon" *ngIf="!isPanelOpened[2]">add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="text-white">Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from
+          your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs,
+          smartphones, tablets, streaming media players and game consoles.</p>
+        <p class="text-white">You can also download your favorite shows with the iOS or Android app. Use downloads to watch while you're on
+          the go and without an internet connection. Take Netflix with you anywhere.</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="togglePanel(3, true)" (closed)="togglePanel(3, false)" hideToggle="true" class="faq-panel mb-2">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-white">
+            How do I cancel?
+          </mat-panel-title>
+          <mat-panel-description class="d-flex justify-content-end m-0">
+            <mat-icon class="icon" *ngIf="isPanelOpened[3]">close</mat-icon>
+            <mat-icon class="icon" *ngIf="!isPanelOpened[3]">add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="text-white">Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account
+          online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="togglePanel(4, true)" (closed)="togglePanel(4, false)" hideToggle="true" class="faq-panel mb-2">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-white">
+            Watch can I watch on Netflix?
+          </mat-panel-title>
+          <mat-panel-description class="d-flex justify-content-end m-0">
+            <mat-icon class="icon" *ngIf="isPanelOpened[4]">close</mat-icon>
+            <mat-icon class="icon" *ngIf="!isPanelOpened[4]">add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="text-white">Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix
+          originals, and more. Watch as much as you want, anytime you want.</p>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="togglePanel(5, true)" (closed)="togglePanel(5, false)" hideToggle="true" class="faq-panel mb-2">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-white">
+            Is Netflix good for kids?
+          </mat-panel-title>
+          <mat-panel-description class="d-flex justify-content-end m-0">
+            <mat-icon class="icon" *ngIf="isPanelOpened[5]">close</mat-icon>
+            <mat-icon class="icon" *ngIf="!isPanelOpened[5]">add</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p class="text-white">The Netflix Kids experience is included in your membership to give parents control while kids enjoy
+          family-friendly TV shows and movies in their own space.</p>
+        <p class="text-white">Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content
+          kids can watch and block specific titles you don’t want kids to see.</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    
+    <form #formFAQ="ngForm" (ngSubmit)="registerFAQ(formFAQ)" class="faq-form">
+      <p class="text-center text-white mb-2">Ready to watch? Enter your email to create or restart your membership</p>
+      <div class="row">
+        <div class="col-lg-8">
+          <mat-form-field appearance="outline" class="mb-2">
+            <mat-label class="label">Email Address</mat-label>
+            <input matInput [(ngModel)]="userEmailInputHeader" name="userEmailFAQ"  email required>
+          </mat-form-field>   
+          <mat-error *ngIf="formFAQ.submitted && formFAQ.controls['userEmailFAQ'].errors?.['required']">
+            <mat-icon>error_outline</mat-icon> Email is required
+          </mat-error>
+          <mat-error *ngIf="formFAQ.submitted && formFAQ.controls['userEmailFAQ'].errors?.['email']">
+            <mat-icon>error_outline</mat-icon> Please enter a valid email address
+          </mat-error>
+        </div>
+        <div class="col-lg-4">
+          <button mat-flat-button color="primary" type="submit">
+            Get Started
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<hr class="horizontal-split">
+
+<div class="container-fluid sections">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-3 col-lg-3">
+        <ul>
+          <li>FAQ</li>
+          <li>Investor Relations</li>
+          <li>Ways to Watch</li>
+          <li>Corporate Information</li>
+          <li>Only on Netflix</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-lg-3">
+        <ul>
+          <li>FAQ</li>
+          <li>Investor Relations</li>
+          <li>Ways to Watch</li>
+          <li>Corporate Information</li>
+          <li>Only on Netflix</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-lg-3">
+        <ul>
+          <li>FAQ</li>
+          <li>Investor Relations</li>
+          <li>Ways to Watch</li>
+          <li>Corporate Information</li>
+          <li>Only on Netflix</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-lg-3">
+        <ul>
+          <li>FAQ</li>
+          <li>Investor Relations</li>
+          <li>Ways to Watch</li>
+          <li>Corporate Information</li>
+          <li>Only on Netflix</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3 col-md-3 col-lg-3">
+        <mat-form-field>
+          <mat-select [(value)]="initialLanguage">
+            <mat-option [value]="1">English</mat-option>
+            <mat-option [value]="2">Filino</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <span>Netflix {{ userTimeZone }}</span>
+    </div>
+
+  </div>
+
+</div>

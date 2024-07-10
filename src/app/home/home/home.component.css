@@ -1,0 +1,85 @@
+.hero-section {
+    /* background-color: var(--black); */
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+
+    .search-section {
+        margin: auto 10rem;
+        width: auto;
+        justify-content: center;
+    }
+}
+
+.horizontal-split {
+    width: auto;
+    background-color: rgb(35, 35, 35);
+    height: 0.5rem;
+    margin: 0;
+    opacity: inherit;
+}
+
+
+.sections {
+    background-color: var(--black);
+    padding: 4.5rem 0;
+}
+
+.faq-panel {
+    background-color: var(--lighter-dark-grey);
+
+    .icon {
+        color: var(--white);
+    }
+
+    .faq-form {
+        margin-top: 3rem;
+    }
+}
+
+.error-message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.heading {
+    color: var(--white);
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    margin-bottom: 3rem;
+}
+
+.label {
+    color: var(--grey);
+}
+
+:host::ng-deep.mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--light-dark-grey);
+}
+
+
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+:host ::ng-deep.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+    border-color: var(--white);
+}
+
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+    border-color: var(--white)
+}
+
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: var(--white);
+}
